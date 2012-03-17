@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>SVG Is Rad</h1>
+  
+    <div id="dropzone">DROPZONE</div>
+    
+    <h2>Input</h2>
+    <div>
+        <textarea id="input"></textarea>
+    </div>
+    <button id="encode">Encode</button>
+        
+    <h2>Output</h2>
+    <div>
+        <input type="text" id="output">
+    </div>
+        
+    <h2>Settings</h2>
+    <div>
+        <div>
+            <label for="width">Width</label>
+            <input id="width" type="range" value="100" min="1" step="1" max="500">
+            <input type="text" value="100px" id="widthPx" class="output">
+        </div>
+        <div>
+            <label for="height">Height</label>
+            <input id="height" type="range" value="100" min="1" step="1" max="500">
+            <input type="text" value="100px" id="heightPx" class="output">
+        </div>
+    </div>
+
+    <h2>Example</h2>
+    <div id="example">
+    </div>
+    
+    <footer>
+    
+    </footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
