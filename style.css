@@ -52,3 +52,8 @@ footer {
     border: 1px solid black;
     background-size: 100% 100%;
 }
+
+canvas {
+  border: 1px solid black;
+}
+
