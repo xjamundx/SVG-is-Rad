@@ -4,6 +4,7 @@
 var $input = $("#input");
 var img = new Image();
 var $img1 = $("#img1");
+var $img2 = $("#img2");
 var $output = $("#output");
 var $example = $("#example");
 var $height = $("#heightPx");
@@ -12,12 +13,15 @@ var $dropzone = $("#dropzone");
 var $encode = $("#encode");
 var $canvas1 = $("#canvasX1");
 var $canvas2 = $("#canvasX2");
-var ctx1 = $canvas1.get(0).getContext('2d');
-var ctx2 = $canvas2.get(0).getContext('2d');
+var c1 = $canvas1.get(0);
+var c2 = $canvas2.get(0);
+var ctx1 = c1.getContext('2d');
+var ctx2 = c2.getContext('2d');
 var $update = $("#update");
 
 $("input[type=range]").change(function() {
   $(this).next(".output").val($(this).val() + "px");
+  updateCanvas();
   updateExample();
 })
 
@@ -29,6 +33,7 @@ $(".output").change(function() {
 $encode.click(function() {
     var encoded = encodeInput($input.val());
     setOutput("data:image/svg+xml;base64," + encoded);
+    updateCanvas();
 })
 
 $update.click(updateExample);
@@ -77,6 +82,15 @@ $dropzone.bind("dragend", function(e) {
   $(this).toggleClass("hover", false);
 })
 
+function updateCanvas() {
+    var svg = $input.val();
+    canvg(c1, svg);
+    canvg(c2, svg);
+    console
+    $img1.attr("src", c1.toDataURL());
+    $img2.attr("src", c2.toDataURL());
+}
+
 function updateExample() {
     var width = parseInt($width.val(), 10);
     var height = parseInt($height.val(), 10);
@@ -84,9 +98,7 @@ function updateExample() {
     $canvas1.prop({width: width, height: height});
     $canvas2.prop({width: width * 2, height : height * 2});
     ctx1.drawImage(img, 0, 0, width, height);
-    ctx2.drawImage(img, 0, 0, width*2, height*2);
-    // $img1.attr("src", ctx1.toDataURL("image/png"));
-    // $img2.attr("src", ctx2.toDataURL("image/png"));
+    ctx2.drawImage(img, 0, 0, width * 2, height * 2);
 }
 
 function encodeInput(text) {
