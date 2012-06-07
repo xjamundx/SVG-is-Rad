@@ -12,6 +12,10 @@ h2 {
     font-size: 18px;    
 }
 
+canvas {
+  display: none;
+}
+
 textarea {
     width: 100%;
     height: 50px;    
@@ -22,6 +26,21 @@ label {
   display: inline-block;
 }
 
+img {
+  border: 1px solid black;
+  display: block;
+}
+
+#img1 {
+  height: 100px;
+  width: 100px;
+}
+
+#img2 {
+  height: 200px;
+  width: 200px;
+}
+
 footer {
   width: 100%;
   height: 100px;
@@ -29,6 +48,10 @@ footer {
 
 #output {
   width: 100%;
+}
+
+.col {
+  display: inline-block;
 }
 
 #dropzone {
